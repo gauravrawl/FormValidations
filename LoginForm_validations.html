@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Sign-Up Form</title>
+
+    <!-- styling in internal css -->
+
+    <style>
+        body {
+            background-size: cover;
+            text-align: center;
+            font-size: 30px;
+            background-repeat: repeat-x;
+        }
+
+        #large {
+            font-weight: bold;
+            font-family: cursive;
+            color: black;
+        }
+
+        #firstname,
+        #lastname,
+        #passs,
+        #eml,
+        #cpasss,
+        #mob,
+        #userr,
+        #url,
+        #document,
+        #self,
+        #user {
+            font-weight: bold;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        #large {
+            font-size: 25px;
+            cursor: pointer;
+            height: 50px;
+            width: 250px;
+            border-radius: 10px;
+        }
+
+        #box {
+            border-radius: 10px;
+            width: 30%;
+            font-size: 20px;
+            background-color: #96E5D1;
+        }
+
+        #error,
+        #fault,
+        #pas,
+        #emml,
+        #jkl,
+        #cerror,
+        #emob,
+        #m,
+        #fe,
+        #O,
+        #useer,
+        #yerror,
+        #uerror,
+        #ffname {
+            color: red;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        #submit {
+            color: red;
+        }
+
+        #a {
+            font-size: 25px;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        #abc {
+            text-align: center;
+        }
+
+        marquee {
+            text-align: center;
+        }
+
+        form {
+            box-shadow: 5px 5px 10px #333;
+            border-radius: 10px;
+            padding: 20px 0;
+        }
+    </style>
+
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    
+    <center>
+        <div id="box">
+            <form action="log.html" onsubmit="return vallidation()">
+                <h1>
+                    Sign-Up Form
+                </h1>
+
+                <label for="fname" id="large">Full Name</label>
+                <span id="jkl"></span><br>
+                <input type="text" oninput="abc(this)" maxlength="30" onkeyup="firstname_validate(this)"
+                    placeholder="Enter Your Full Name" id="user" autocomplete="off" required>
+                <br>
+                <span id="ffname"></span><br>
+
+
+                <lable id="large">First Name</lable><br>
+                <input type="text" onkeyup="first(this)" oninput="abc(this)" id="firstname" autocomplete="off"
+                    maxlength="10" placeholder="Enter Your First Name" required><br>
+                <span id="error"></span>
+                <br>
+
+
+                <label id="large">Last Name</label><br>
+                <input type="text" onkeyup="last(this)" oninput="abc(this)" id="lastname" maxlength="10"
+                    autocomplete="off" placeholder="Enter Your Last Name" required><br>
+                <span id="fault"></span><br>
+
+
+                <label id="large"> <select class="option">
+                        <option value="null" selected hidden>Select Country </option>
+                        <option>India +91</option>
+                        <option>+UK: +44</option>
+                        <option>+Mexico: +52 </option>
+                        <option>+China: +86</option>
+                        <option>USA: +1</option>
+                        <option>Albania: +355</option>
+                    </select> <br> Mobile Number</label><br>
+                <input type="text" oninput="ph(this)" onkeyup="mobile(this)" id="mob" maxlength="10"
+                    placeholder="Enter Your Number" autocomplete="off" required><br>
+                <span id="emob"></span><br>
+
+
+                <label id="large">Email</label><br>
+                <input type="text" onkeyup="mail(this)" oninput="com(this)" onkeypress="return event.charCode != 32"
+                    onclick="com(this)" autocomplete="off" id="eml" maxlength="30" placeholder="Entre Your Mail"
+                    required><br>
+                <span id="emml"></span><br>
+
+                <label id="large">Password<br>
+                    <input type="password" onkeyup="pass(this)" oninput="abc(this)"
+                        onkeypress="return event.charCode != 32" id="passs" maxlength="15" autocomplete="off"
+                        placeholder="Enter Your Password" required>
+                    <i class="far fa-eye" id="togglePassword" style="margin-left: 0px; cursor: pointer;"></i>
+                    <br><br>
+                </label>
+
+
+                <label id="large"> Confirm Password</label><br>
+                <input type="password" onkeyup="cpass(this)" oninput="fun(this)" id="cpasss"
+                    onkeypress="return event.charCode != 32" autocomplete="off" maxlength="15"
+                    placeholder="Confirm Your Password" required><br>
+                <span id="cerror"></span><br>
+
+
+
+                <label id="large">Gender</label><br>
+                <input type="radio" name="Male" id="m" required>Male
+                <input type="radio" name="Male" id="fe" required>Female
+                <input type="radio" name="Male" id="O" required>Other
+                <br><br>
+
+
+
+                <label id="large">Date of Birth</label> <br>
+                <input type="date" value="dd/mm/yyyy" min="1992-01-01" max="1998-01-12" required>
+                <br><br>
+
+
+
+                <input type="checkbox" name="checkbox" onclick="term(this)" id="check" required> <a href="tc.html" style="text-decoration: none!important"> Agree All Terms & Conditions </a> <br><br>
+
+                <button id="large">Submit</button>
+
+
+    </center>
+    </form>
+    </div>
+
+    <script>
+
+        let firstnameError = true;
+        let lastnameError = true;
+        let mobileerror = true;
+        let passwordError = true;
+        let CpasswordError = true;
+        let emailError = true;
+        let useridError = true;
+        let DescribeError = true;
+
+
+        function fun(input) {
+            if (/^\s/.test(input.value)) {
+                input.value = '';
+                document.getElementById("jkl").innerHTML = "First space not allowed"
+            }
+            else {
+                document.getElementById("jkl").innerHTML = "";
+            }
+        }
+        function allowed(input) {
+            var rgx = /[^a-zA-Z@!\s.0-9]/gi;
+            input.value = input.value.replace(rgx, "");
+        }
+
+        function ph(input) {
+            var phone = /[^0-9]/gi;
+            input.value = input.value.replace(phone, "");
+
+        }
+
+        function com(input) {
+            var reeg = /.com.com| .co.co|.in.in|.edu.edu|.gov.gov.|.aa.aa|.bb.bb|.ab.ab/gi;
+            input.value = input.value.replace(reeg, "");
+        }
+
+        function abc(input) {
+            fun(input);
+            allowed(input);
+
+        }
+
+
+        // First name vallidation();
+
+
+        function firstname_validate() {
+            var user = document.getElementById("user").value;
+            var nme = /([a-zA-Z])\1+\1+/g;
+            var u = /^[A-Z][.a-z0-9]+ [A-Z][a-z0-9]+$/;
+            var u2 = /^[A-Z][.a-z0-9]+ [A-Z][a-z0-9]+ [A-Z][a-z0-9]+$/;
+            var u3 = /^[A-Z][.a-z0-9]+$/;
+            var u1 = /^[A-Z][.a-z0-9]+ [A-Z][a-z0-9]+ [A-Z][a-z0-9]+ [A-Z][a-z0-9]+$/;
+            var u4 = /^[A-Z]+ [A-Z]+ [A-Z][a-z0-9]+ [A-Z][a-z0-9]+$/;
+            var u5 = /^[A-Z]+ [A-Z]+ [A-Z][a-z0-9]+$/;
+            var u6 = /^[A-Z][.a-z0-9]+ [A-Z]+ [A-Z][a-z0-9]+$/;
+
+            if (user == "") {
+                document.getElementById('ffname').innerHTML = "Please field the First Name";
+                fullerror = false;
+            } else if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(user)) {
+                document.getElementById('ffname').innerHTML = " special characters not allowed";
+                fullerror = false;
+            } else if (/^\s+$/.test(user)) {
+                document.getElementById('ffname').innerHTML = "Space not allowed";
+                fullerror = false;
+
+
+            } else if (/(\w)\1{2,}/.test(user)) {
+                document.getElementById('ffname').innerHTML = "repeated character not allowed";
+                fullerror = false;
+            } else if (/^\d+$/.test(user)) {
+                document.getElementById('ffname').innerHTML = "Only Characters all allowed";
+                fullerror = false;
+            } else if (!/^[A-Z]/.test(user)) {
+                document.getElementById('ffname').innerHTML = " First letter must be capitalize";
+                fullerror = false;
+            } else if (user.length < 2 || user.length > 30) {
+                document.getElementById('ffname').innerHTML = " user Length must be Between 2 and 30";
+                fullerror = false;
+
+
+            } else if (!u.test(user) && !u1.test(user) && !u2.test(user) && !u3.test(user) && !u4.test(user) && !u5.test(user) && !u6.test(user)) {
+                document.getElementById('ffname').innerHTML = "*Invalid full name!";
+
+            } else {
+                document.getElementById('ffname').innerHTML = "";
+                fullerror = true;
+            }
+        }
+
+        function first() {
+            var firsttname = document.getElementById('firstname').value;
+            var letters = /^[A-Z][a-z]/;
+            var nme = /(\w)\1{2,}/;
+            var spc = /^([a-zA-Z0-9]+\s?)*$/;
+
+            if (firsttname == "") {
+                document.getElementById('error').innerHTML = "please Enter a valid name";
+                firstnameError = false;
+
+            } else if (nme.test(firsttname)) {
+                document.getElementById("error").innerHTML = "Repeated character are not allowed";
+                firstnameError = false;
+            }
+            else if (!isNaN(firsttname)) {
+                document.getElementById('error').innerHTML = "number is not Allowed";
+                firstnameError = false;
+            }
+
+            else if (!letters.test(firsttname)) {
+                document.getElementById("error").innerHTML = "First letter must be capital";
+                firstnameError = false;
+            }
+            else if (firsttname.length < 2 || firsttname.length > 30) {
+                document.getElementById("error").innerHTML = "Minimum 2 letter allowed";
+                firstnameError = false;
+            }
+            else if (!spc.test(firsttname)) {
+                document.getElementById("error").innerHTML = "only one space allowed";
+                firstnameError = false;
+            }
+            else {
+                document.getElementById('error').innerHTML = "";
+                firstnameError = true;
+            }
+        }
+
+
+        function last() {
+            var lastname = document.getElementById('lastname').value;
+            var letters = /^[A-Z][a-z]/;
+            var repeate = /(\w)\1{2,}/;
+            var spce = /^([a-zA-Z0-9.]+\s?)*$/;
+
+            if (lastname == "") {
+                document.getElementById('fault').innerHTML = "please Enter last name";
+                lastnameError = false;
+            }
+            else if (repeate.test(lastname)) {
+                document.getElementById("fault").innerHTML = "repeated charcter not allowed";
+                lastnameError = false;
+            }
+            else if (!letters.test(lastname)) {
+                document.getElementById("fault").innerHTML = "First Letter Must be Capital";
+                lastnameError = false;
+            }
+
+            else if (!spce.test(lastname)) {
+                document.getElementById("fault").innerHTML = "space not allowed";
+                lastnameError = false;
+            }
+
+            else if (lastname.length < 2 || lastname.length > 30) {
+                document.getElementById("fault").innerHTML = "Minimum 2 letter allowe";
+                lastnameError = false;
+            }
+
+            else {
+                document.getElementById('fault').innerHTML = "";
+                lastnameError = true;
+            }
+        }
+
+        function mobile() {
+            var mobilee = document.getElementById("mob").value;
+            var indd = /^[6-9]{3,}$/;
+            var innd = /^[0-5]{3,}$/;
+
+            if (mobilee == "") {
+                document.getElementById("emob").innerHTML = "Enter Mobile no";
+                mobileerror = false;
+            }
+            else if ((mobilee.charAt(0) != 9) && (mobilee.charAt(0) != 8) && (mobilee.charAt(0) != 7) && (mobilee.charAt(0) != 6)) {
+
+                document.getElementsById("emob").innerHTML = "Only 9,8,7,6 allowe in India";
+                mobileerror = false;
+            }
+
+            else if (indd.test(mobilee)) {
+                document.getElementById("emob").innerHTML = "repeat ";
+                mobileerror = false;
+            }
+
+
+            else if (mobilee.length < 10 || mobilee.length > 10) {
+                document.getElementById('emob').innerHTML = "Mobile no allowe only 10 digits";
+                mobileerror = false;
+            }
+            else {
+                document.getElementById("emob").innerHTML = "";
+                mobileerror = true;
+            }
+        }
+
+        function myFunction() {
+            var x = document.getElementById("passs");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+
+        function pass() {
+            var password = document.getElementById("passs").value;
+            // var letters = /[A-Z]/;
+            var reletter = /(\w)\1{2,}/;
+            // var nuum = /[0-9]/;
+            if (password == "") {
+                document.getElementById("pas").innerHTML = "*A-za-z0-9@!#";
+                passwordError = false;
+            }
+            else if (reletter.test(password)) {
+                document.getElementById("pas").innerHTML = "Repeated charchter not allowed";
+                passwordError = false;
+            }
+            else if (password.search(/[a-zA-z]/) < 0) {
+                document.getElementById("pas").innerHTML = "Charachter allowed";
+                passwordError = false;
+            }
+            else if (password.search(/[0-9]/i) < 0) {
+                document.getElementById("pas").innerHTML = "One number is compulsery";
+                passwordError = false;
+            }
+
+            else if (password.length < 5 || password.length > 15) {
+                document.getElementById('pas').innerHTML = "Password  must be Between 5 and 20";
+                passwordError = false;
+            }
+            else if (password.search(/[!@#$%^&*]/i) < 0) {
+                document.getElementById("pas").innerHTML =
+                    "one specail chrachter allowed";
+                passwordError = false;
+            }
+
+            else {
+                document.getElementById("pas").innerHTML = "";
+                passwordError = true;
+            }
+
+        }
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#passs');
+
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+
+
+
+        function cpass() {
+            var password = document.getElementById("passs").value;
+            var cpassword = document.getElementById("cpasss").value;
+
+            if (password != cpassword) {
+                document.getElementById('cerror').innerHTML = "Password are not matching";
+                CpasswordError = false;
+            }
+
+            else {
+                document.getElementById("cerror").innerHTML = "";
+                CpasswordError = true;
+            }
+        }
+
+
+        function mail() {
+            var email = document.getElementById("eml").value;
+            if (email == "") {
+                document.getElementById('emml').innerHTML = "Please fill the Email";
+                emailError = false;
+
+            } else if (/^[a-z]\w+([\.-]?\w+)*@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.){1,2}[a-zA-Z]{2,3}))$/.test(email)) {
+                document.getElementById('emml').innerHTML = "";
+                emailError = true;
+            }
+
+            else if (email.length < 2 || email.length > 15) {
+                document.getElementById('eml').innerHTML = "Email must be Between 2 and 15";
+                emailError = false;
+            }
+
+            else {
+                document.getElementById('emml').innerHTML = "Invalid Email";
+                emailError = true;
+            }
+        }
+        
+
+        function vallidation() {
+            first();
+            last();
+            pass();
+            cpass();
+            mobile();
+            mail();
+           
+
+            if (
+                firstnameError == true && lastnameError == true && mobileerror == true && passwordError == true &&
+                CpasswordError == true && emailError == true) {
+                alert("Succesfull");
+                return true;
+            }
+            else {
+
+                return false;
+            }
+        }
+
+
+    </script>
+
+
+
+</body>

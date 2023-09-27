@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validation</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<style>
+    .body{
+                background-color: red;
+                background-size: cover;
+            }
+    
+    .select{
+        width: 100%;
+
+    }
+    .form{
+        margin-top: 39px;
+      list-style:none;
+    }
+    .hidden-form{
+      visibility:hidden;
+      width: 70%;
+      border-radius: 20px;
+      padding: 10px;
+      border: 1px solid gray;
+      }
+    .show-form{
+    visibility: visible !important;
+    }
+    .fa-magnifying-glass{
+        background-color: greenyellow;
+        width: 40px;
+        height: 40px;
+        color: black;
+        align-items: center;
+        color: black;
+        display:flex ;
+        border-radius: 50px;
+        justify-content: center;
+        cursor: pointer;
+        
+    }
+    button{
+        border: 0;
+    }
+    .mrl{
+        margin-left: 100px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+
+       <h1 style="text-align: center;background-color:aqua">Validation From</h1>
+        <form action="action_page.php" onsubmit="return validation()"name="forms">
+           <div class="from-group">
+            <label for="">UserName</label><br><br>
+            <input type="text" id="username" class="form-control" placeholder="Enter the Name">
+            <span id="erroruser" class="text-danger font-weight-bold"></span>
+           </div>
+           <div class="from-group">
+            <label for="">Password</label><br><br>
+            <input type="password" id="password" class="form-control"placeholder="Enter the Password">
+            <span id="errorpass" class="text-danger font-weight-bold"></span>
+           </div>
+           <div class="from-group">
+            <label for="">Confirm Password</label><br><br>
+            <input type="password" id="cpassword" class="form-control" placeholder="Enter The Conform Password">
+            <span id="errorcpass" class="text-danger font-weight-bold"></span>
+           </div>
+           <div class="from-group">
+            <label for="">Email</label><br><br>
+            <input type="text" id="email" class="form-control"placeholder="Enter The Email ">
+            <span id="erroremail" class="text-danger font-weight-bold"></span>
+           </div>
+           <div class="from-group">
+            <label for="">Mobile-Number</label><br><br>
+            <input type="text" id="mobile" class="form-control" placeholder="Enter the Mobile Number">
+            <span id="errormobile" class="text-danger font-weight-bold"></span>
+           </div>
+           <div class="from-group">
+            <label for="">Alpha-Text</label><br><br>
+            <input type="text" id="alpha" class="form-control" placeholder="Enter the Alpha Text">
+            <span id="erroralpha" class="text-danger font-weight-bold"></span>
+           </div>
+           <div class="select">
+            <label for="cars">Select Your Profile:</label><br><br>
+            <select name="cars" id="cars" multiple style="width: 100%;height:158px;"required>
+              <option value="volvo" selected>  Select Option</option>
+              <option value="saab"> python developer</option>
+              <option value="opel"> android developer</option>
+              <option value="audi"> anguler developer</option>
+              <option value="volvo">  Java developer</option>
+              <option value="saab">  IOS developer</option>
+              <option value="opel">  AI developer</option>
+              <option value="audi">  Mobile App developer</option>
+              <option value="volvo">  Networking</option>
+              <option value="saab">  IT Engineer</option>
+              <option value="opel">  Blockchain</option>
+              <option value="audi">  Metaverse</option>
+              <option value="volvo">  React</option>
+              <option value="saab">  Node Js</option>
+              <option value="opel">  .net</option>
+              <option value="audi">  IOT</option>
+              </select>
+              </div>
+              <ul class="form">
+                <li> 
+                    <label for="">Search only Text:</label>
+                <button class="form-btn" type="button" name="name"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input class="hidden-form" type="text" name="nm"id="search" >
+                <span id="errorsearch"></span>
+                </li>
+                </ul> 
+                 <div>
+                    <label for="">Select the minimam 2 launage</label><br><br>
+                    <input type="checkbox" id="" name="lang" value="Bike"class="mrl">
+                    <label for="vehicle1"> ENGLISH</label>
+                    <input type="checkbox" id="vehicle2" name="lang" value="Car"class="mrl">
+                    <label for="vehicle2"> HINDI</label>
+                    <input type="checkbox" id="vehicle3" name="lang" value="Boat"class="mrl">
+                    <label for="vehicle3">FRENCH</label>
+                    <input type="checkbox" id="" name="lang" value="Bike"class="mrl">
+                    <label for="vehicle1"> AMERICAN</label>
+                    <input type="checkbox" id="vehicle2" name="lang" value="Car"class="mrl">
+                    <label for="vehicle2"> BOSNIAN</label>
+                    <input type="checkbox" id="vehicle3" name="lang" value="Boat"class="mrl">
+                    <label for="vehicle3">ARABIC</label>
+                 </div>
+                 <span id="errorcheckbox" class="text-danger font-weight-bold"></span><br>
+
+                 <div >
+                    <label for="">Gender:</label><br><br>
+                    <label for=""class="mrl">Male</label>
+                    <input type="radio" id="male" name="gender" value="HTML">
+                      <label for="html"class="mrl">Female</label>
+                      <input type="radio" id="female" name="gender" value="CSS">
+                      <label for="css"class="mrl">Other</label>
+                      <input type="radio" id="other" name="gender" value="JavaScript">
+                      
+                </div>
+                <span id="errorradio" class="text-danger font-weight-bold"></span>
+                 <BR></BR>
+
+                <div style="text-align: CENTER;">
+                    <label for="vehicle1"> Check me</label>
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" required>
+                    
+                </div>
+           <br>
+           <input type="submit" value="submit" class="btn btn-dark "style="width:100%; background-color:aqua;color:black;">
+            </form>
+    </div>
+    <script>
+        function validation(){
+           var username=document.getElementById("username").value;
+           var password=document.getElementById("password").value;
+           var cpas=document.getElementById("cpassword").value;
+           var mail=document.getElementById("email").value;
+           var mobileno=document.getElementById("mobile").value;
+         
+
+           var userpatern=/^[A-Z][a-zA-Z ]{2,20}$/ ;
+           var passswordpattrn=/^(?=.*[0-9])(?=.*[!@#%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
+           var emailpattrn=/^[A-Za-z]{3,}@[a-zA-Z]{3,}[.]{1}[A-Za-z]{2,6}$/;
+           var mobilepattrn=/^[789][0-9]{9}$/;
+          
+          
+
+           if(userpatern.test(username)){
+            document.getElementById("erroruser").innerHTML=" ";
+           }
+           else{
+            document.getElementById("erroruser").innerHTML="this is invalid ";
+            return false;
+           }
+
+           if(passswordpattrn.test(password)){
+            document.getElementById("errorpass").innerHTML=" ";
+           }
+           else{
+            document.getElementById("errorpass").innerHTML="this is invalid ";
+            return false;
+           }
+
+           if(cpas.match(password)){
+            document.getElementById("errorcpass").innerHTML=" ";
+           }
+           else{
+            document.getElementById("errorcpass").innerHTML="this is invalid ";
+            return false;
+           }
+
+           if(emailpattrn.test(mail)){
+            document.getElementById("erroremail").innerHTML=" ";
+           }
+           else{
+            document.getElementById("erroremail").innerHTML="this is invalid ";
+            return false;
+           }
+
+           if(mobilepattrn.test(mobileno)){
+            document.getElementById("errormobile").innerHTML=" ";
+           }
+           else{
+            document.getElementById("errormobile").innerHTML="this is invalid ";
+            return false;
+           }
+
+          
+           
+
+           //validation for checkbox
+           var a=document.forms.lang;
+           for(i=0;i<a.length;i++){
+            if(a[i].checked==true){
+                return true
+            }
+           }
+           document.getElementById("errorcheckbox").innerHTML="please select atleat one language";
+           return false;
+        }
+        
+       
+
+        $('.form-btn').click(function(){
+$(this).next().toggleClass('show-form');
+});
+    </script>
+</body>
+</html>
